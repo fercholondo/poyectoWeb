@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -70,17 +69,17 @@ func (h *Handler) LeerUnEmpleado(writer http.ResponseWriter, req *http.Request) 
 		http.Error(writer, fmt.Sprintf("fallo al leer un empleado, con error: %s", err.Error()), http.StatusNotFound)
 		return
 	}
-
-	jsonEmpleado, err := json.Marshal(empleado)
-	if err != nil {
-		log.Printf("fallo al convertir a JSON, con error: %s", err.Error())
-		http.Error(writer, fmt.Sprintf("fallo al convertir a JSON, con error: %s", err.Error()), http.StatusInternalServerError)
-		return
-	}
-
+	/*
+		jsonEmpleado, err := json.Marshal(empleado)
+		if err != nil {
+			log.Printf("fallo al convertir a JSON, con error: %s", err.Error())
+			http.Error(writer, fmt.Sprintf("fallo al convertir a JSON, con error: %s", err.Error()), http.StatusInternalServerError)
+			return
+		}
+	*/
 	writer.WriteHeader(http.StatusOK)
 	writer.Header().Set("Content-Type", "application/json")
-	writer.Write(jsonEmpleado)
+	writer.Write(empleado)
 }
 
 func (h *Handler) LeerEmpleados(writer http.ResponseWriter, req *http.Request) {
@@ -90,17 +89,18 @@ func (h *Handler) LeerEmpleados(writer http.ResponseWriter, req *http.Request) {
 		http.Error(writer, fmt.Sprintf("fallo al leer empleados, con error: %s", err.Error()), http.StatusInternalServerError)
 		return
 	}
-
-	jsonEmpleados, err := json.Marshal(empleados)
-	if err != nil {
-		log.Printf("fallo al convertir a JSON, con error: %s", err.Error())
-		http.Error(writer, fmt.Sprintf("fallo al convertir a JSON, con error: %s", err.Error()), http.StatusInternalServerError)
-		return
-	}
+	/*
+		jsonEmpleados, err := json.Marshal(empleados)
+		if err != nil {
+			log.Printf("fallo al convertir a JSON, con error: %s", err.Error())
+			http.Error(writer, fmt.Sprintf("fallo al convertir a JSON, con error: %s", err.Error()), http.StatusInternalServerError)
+			return
+		}
+	*/
 
 	writer.WriteHeader(http.StatusOK)
 	writer.Header().Set("Content-Type", "application/json")
-	writer.Write(jsonEmpleados)
+	writer.Write(empleados)
 }
 
 func (h *Handler) CrearEmpleado(writer http.ResponseWriter, req *http.Request) {
