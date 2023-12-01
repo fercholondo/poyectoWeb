@@ -7,10 +7,9 @@ botonBuscarEmpleado.addEventListener("click", async () => {
     
     // Realiza la solicitud a la API principal
     const response = await axios.get(
-      `https://localhost:8080/empleados/${Id}`
+      `http://localhost:8080/empleados/${Id.value}`
           );
     
-
     console.log(response.data.nombres);
     console.log(response.data.apellidos);
     console.log(response.data.identificacion);
