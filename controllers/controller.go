@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"strconv"
 	"strings"
 
 	"poyectoWeb/models"
@@ -82,6 +83,22 @@ func (c *Controller) LeerUnEmpleado(id string) ([]byte, error) {
 		return nil, fmt.Errorf("fallo al leer un empleado, con error: %s", err.Error())
 	}
 
+	// Conversión de FechaIngreso a un formato de fecha apropiado
+	/*
+		if emp, ok := empleado.(*models.Empleado); ok {
+			if t, err := time.Parse("2006-01-02", emp.FechaIngreso); err == nil {
+				emp.FechaIngreso = t.Format("2006-01-02") // El formato deseado para la fecha
+			}
+		}
+	*/
+	// Conversión de Salario a un tipo numérico si se almacena como cadena de números
+	if empleado.Salario != "" {
+		salario, err := strconv.ParseFloat(empleado.Salario, 64)
+		if err == nil {
+			empleado.Salario = fmt.Sprintf("%.2f", salario) // Ajusta el salario a dos decimales si es necesario
+		}
+	}
+
 	empleadoJson, err := json.Marshal(empleado)
 	if err != nil {
 		log.Printf("fallo al leer un empleado, con error: %s", err.Error())
@@ -95,6 +112,15 @@ func (c *Controller) LeerEmpleados(limit, offset int) ([]byte, error) {
 	if err != nil {
 		log.Printf("fallo al leer empleados, con error: %s", err.Error())
 		return nil, fmt.Errorf("fallo al leer empleados, con error: %s", err.Error())
+	}
+
+	for _, emp := range empleados {
+		if emp.Salario != "" {
+			salario, err := strconv.ParseFloat(emp.Salario, 64)
+			if err == nil {
+				emp.Salario = fmt.Sprintf("%.2f", salario) // Ajusta el salario a dos decimales si es necesario
+			}
+		}
 	}
 
 	jsonEmpleados, err := json.Marshal(empleados)
