@@ -59,7 +59,7 @@ func main() {
 	router.Handle("/empleados/{id}", http.HandlerFunc(handler.EliminarUnEmpleado)).Methods(http.MethodDelete)
 
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
+	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "PATCH", "DELETE"})
 	origins := handlers.AllowedOrigins([]string{"*"})
 
 	http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(router))

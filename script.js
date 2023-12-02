@@ -33,12 +33,6 @@ botonBuscarEmpleado.addEventListener("click", async () => {
    salario.innerHTML = response.data["salario"];
 console.log(typeof(nombres.value))
 
-  //   const temperatura = respuesta.data["main"]["temp"];    
-   // temperaturas.innerHTML = `${Math.round(temperatura)}°C`;
-   // city.innerHTML = respuesta.data["name"];
-  //  humedad.innerHTML = `${respuesta.data["main"]["humidity"]}%`;
-   // vel_viento.innerHTML = `${respuesta.data["wind"]["speed"]}km/h`;
-
   } catch (error) {
      // Manejo de errores
      console.error("Error al buscar el Id", error);   
@@ -47,31 +41,33 @@ console.log(typeof(nombres.value))
 });
 botonCrearEmpleado.addEventListener("click", async () => {
   try {
-  
+   const ident=Number(document.querySelector("#identificacion" ).value)
+ const nomb=document.querySelector("#nombres" ).value
+const  apelli=document.querySelector("#apellidos" ).value
+ const fecha_in=document.querySelector("#fecha_ingreso" ).value
+ const car=document.querySelector("#cargo" ).value
+ const es_vin=Boolean(document.querySelector("#es_vinculado" ).value)
+ const salar=String(document.querySelector("#salario" ).value)
+ 
+ const empleado={identificacion: ident,
+ nombres:`${nomb}`,
+ apellidos:`${apelli}`,
+ fecha_ingreso:`${fecha_in}`,
+ cargo:`${car}`,
+ es_vinculado:es_vin,
+ salario:`${salar}`}
+ console.log (empleado)
   
   // Realiza la solicitud a la API principal
  const response = await axios.post(
-    `http://localhost:8080/empleados`
+    `http://localhost:8080/empleados`,empleado
         );
-  ident=Number(document.querySelector("#identificacion" ).value)
-  nomb=document.querySelector("#nombres" ).value
-  apelli=document.querySelector("#apellidos" ).value
-  fecha_in=document.querySelector("#fecha_ingreso" ).value
-  car=document.querySelector("#cargo" ).value
-  es_vin=Boolean(document.querySelector("#es_vinculado" ).value)
-  salar=String(document.querySelector("#salario" ).value)
+  
 
   console.log(typeof(ident),typeof(nomb),typeof(apelli),typeof(fecha_in),typeof(car),typeof(es_vin),typeof(salar)
   )
 
-  empleado={"identificacion":ident,
-  "nombres":nomb,
-  "apellidos":apelli,
-  "fecha_ingreso":fecha_in,
-  "cargo":car,
-  "es_vinculado":es_vin,
-  "salario":salar}
-  console.log (empleado)
+
 
  
 
