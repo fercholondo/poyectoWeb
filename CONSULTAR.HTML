@@ -10,15 +10,40 @@
   <body>
     <Main>
         <header>
-            <h1> <font size="10">CONSULTAR EMPLEADO</font> </h1>
+            <h1> <font size="10">BASE DE DATOS EMPLEADOS S.A</font> </h1>
         </header>
 <article>
     <div class="search">
         <input type="text" placeholder=" ingrese Id" spellcheck="false">
         <button><img class="img" src="images/search.png">  </button>
         
-    </div>     
+    </div>  
+    <div hidden="hidden" class=" ingresar-datos">
+        <ul>
+            <li>   <a> Identificacion: </a> <input id="identificacion" type="text" placeholder="identificacion" spellcheck="false"></a> </li>      
+            <li>   <a> Nombres: </a> <input  type="text" placeholder="nombres" spellcheck="false"></a> </li>
+            <li>   <a> Apellidos: </a> <input  type="text" placeholder="apellidos" spellcheck="false"></a> </li>
+            <li>   <a> Fecha_ingreso: </a> <input  type="text" placeholder=" aa-mm-dd" spellcheck="false"></a> </li>
+            <li>   <a> cargo: </a> <input  type="text" placeholder=" cargo" spellcheck="false"></a> </li>
+            <li>   <a> Es_vinculado: </a> <input  type="text" placeholder=" true/false" spellcheck="false"></a> </li>
+            <li>   <a> Salario: </a> <input  type="text" placeholder=" valor" spellcheck="false"></a> </li>        
+        </ul> 
+        </div>
+        <div class="leer-datos">
+            <ul>
+                <li>   <h1>  Identificacion:  </h1><p class= "identificacion"> </p> </li>    
+                <li>   <h1>  Nombre:  </h1><p class= "nombres"> </p> </li>
+                <li>   <h1>  Apellidos:  </h1><p class= "apellidos"> </p> </li>
+                <li>   <h1>  Fecha  de ingreso:  </h1><p class= "fecha_ingreso"> </p> </li>
+                <li>   <h1>  Cargo:  </h1><p class= "cargo"> </p> </li>
+                <li>   <h1>  Vinculado:  </h1><p class= "es_vinculado"> </p> </li>
+                <li>   <h1>  Salario:  </h1><p class= "salario"> </p> </li>       
+            </ul> 
+            </div>             
 </article>
+<div class="crear">
+        <button><p> crear </p> </button>    
+</div> 
 
 <p><a  class= "home" href="index.html"><em>Inicio</em></a></p>  
     
