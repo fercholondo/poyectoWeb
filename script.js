@@ -10,7 +10,6 @@ botonBuscarEmpleado.addEventListener("click", async () => {
       `http://localhost:8080/empleados/${Id.value}`
           );
     
-
     console.log(response.data.nombres);
     console.log(response.data.apellidos);
     console.log(response.data.identificacion);
