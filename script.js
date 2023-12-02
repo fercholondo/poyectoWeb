@@ -33,12 +33,6 @@ botonBuscarEmpleado.addEventListener("click", async () => {
    salario.innerHTML = response.data["salario"];
 console.log(typeof(nombres.value))
 
-  //   const temperatura = respuesta.data["main"]["temp"];    
-   // temperaturas.innerHTML = `${Math.round(temperatura)}°C`;
-   // city.innerHTML = respuesta.data["name"];
-  //  humedad.innerHTML = `${respuesta.data["main"]["humidity"]}%`;
-   // vel_viento.innerHTML = `${respuesta.data["wind"]["speed"]}km/h`;
-
   } catch (error) {
      // Manejo de errores
      console.error("Error al buscar el Id", error);   
