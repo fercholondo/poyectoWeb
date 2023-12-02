@@ -8,6 +8,8 @@ const cargo = document.querySelector(".cargo");
 const vinculado = document.querySelector(".es_vinculado");
 const salario = document.querySelector(".salario");
 const botonCrearEmpleado = document.querySelector(".crear button");
+const botonEliminarEmpleado = document.querySelector(".eliminar button");
+const botoneModificarEmpleado = document.querySelector(".modificar button");
 
 botonBuscarEmpleado.addEventListener("click", async () => {
     try {
@@ -43,7 +45,7 @@ console.log(typeof(nombres.value))
      window.alert("Error al buscar el Id") 
   }
 });
-/*botonCrearEmpleado.addEventListener("click", async () => {
+botonCrearEmpleado.addEventListener("click", async () => {
   try {
   
   
