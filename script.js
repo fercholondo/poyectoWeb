@@ -80,8 +80,8 @@ botonCrearEmpleado.addEventListener("click", async () => {
    console.error("Error al crear empleado", error);   
    window.alert("Error  al crear empleado") 
 }
-});*/
-botonCrearEmpleado.addEventListener("click", async () => {
+});
+botonEliminarEmpleado.addEventListener("click", async () => {
   try {
     console.log(Id.value)
   
