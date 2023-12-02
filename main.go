@@ -3,15 +3,15 @@ package main
 import (
 	"log"
 	"net/http"
-
 	"poyectoWeb/controllers"
-	"poyectoWeb/handlers"
+	myhandlers "poyectoWeb/handlers"
 	"poyectoWeb/models"
 	repositorio "poyectoWeb/repository"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
-	"github.com/lib/pq"
+	"github.com/lib/pq" //
 )
 
 func ConectarDB(url, driver string) (*sqlx.DB, error) {
@@ -45,12 +45,11 @@ func main() {
 		return
 	}
 
-	handler, err := handlers.NewHandler(controller)
+	handler, err := myhandlers.NewHandler(controller)
 	if err != nil {
 		log.Fatalln("fallo al crear una instancia de handler", err.Error())
 		return
 	}
-
 	router := mux.NewRouter()
 
 	router.Handle("/empleados", http.HandlerFunc(handler.LeerEmpleados)).Methods(http.MethodGet)
@@ -59,5 +58,10 @@ func main() {
 	router.Handle("/empleados/{id}", http.HandlerFunc(handler.ActualizarUnEmpleado)).Methods(http.MethodPatch)
 	router.Handle("/empleados/{id}", http.HandlerFunc(handler.EliminarUnEmpleado)).Methods(http.MethodDelete)
 
-	http.ListenAndServe(":8080", router)
+	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
+	origins := handlers.AllowedOrigins([]string{"*"})
+
+	http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(router))
+
 }
