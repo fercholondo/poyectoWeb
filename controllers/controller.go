@@ -87,7 +87,7 @@ func (c *Controller) LeerUnEmpleado(id string) ([]byte, error) {
 	/*
 		if emp, ok := empleado.(*models.Empleado); ok {
 			if t, err := time.Parse("2006-01-02", emp.FechaIngreso); err == nil {
-				emp.FechaIngreso = t.Format("2006-01-02") // El formato deseado para la fecha
+				emp.FechaIngreso = t.Format("2006-01-02")
 			}
 		}
 	*/
@@ -95,7 +95,7 @@ func (c *Controller) LeerUnEmpleado(id string) ([]byte, error) {
 	if empleado.Salario != "" {
 		salario, err := strconv.ParseFloat(empleado.Salario, 64)
 		if err == nil {
-			empleado.Salario = fmt.Sprintf("%.2f", salario) // Ajusta el salario a dos decimales si es necesario
+			empleado.Salario = fmt.Sprintf("%.2f", salario)
 		}
 	}
 
@@ -118,7 +118,7 @@ func (c *Controller) LeerEmpleados(limit, offset int) ([]byte, error) {
 		if emp.Salario != "" {
 			salario, err := strconv.ParseFloat(emp.Salario, 64)
 			if err == nil {
-				emp.Salario = fmt.Sprintf("%.2f", salario) // Ajusta el salario a dos decimales si es necesario
+				emp.Salario = fmt.Sprintf("%.2f", salario)
 			}
 		}
 	}
