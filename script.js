@@ -87,6 +87,7 @@ botonEliminarEmpleado.addEventListener("click", async () => {
     `http://localhost:8080/empleados/${Id.value}`
         );
         console.log("si paso")
+        window.alert("se elimino empleado") 
   
   } catch (error) {
    // Manejo de errores
