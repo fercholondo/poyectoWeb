@@ -1,7 +1,7 @@
 package models
 
 type Empleado struct {
-	ID             int    `db:"id" json:"id"`
+	ID             uint64 `db:"id" json:"id"`
 	Identificacion int    `db:"identificacion" json:"identificacion"`
 	Nombres        string `db:"nombres" json:"nombres"`
 	Apellidos      string `db:"apellidos" json:"apellidos"`

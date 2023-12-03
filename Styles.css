@@ -24,7 +24,7 @@ menu {
  display: inline-flex;
  padding: 40px;
 text-align: justify center;
-width: 63%;
+width: 66%;
 margin-top: 10px; 
 }
     .search { 
@@ -50,17 +50,9 @@ margin-top: 10px;
       height: 10px;
       margin: 5px;
     }
-    .leer_datos {
-      width: 50%;
-      border:2px solid black;
-      border-radius: 20px;
-    }
    
-.ingresar_datos {
-  width: 50%;
-  border:2px solid black;
-  border-radius: 20px;
-}
+   
+
    
    
   article{   
@@ -75,6 +67,7 @@ margin-top: 10px;
  
     
   ul > li{
+    
     list-style: none;
     text-align: justify;
     padding: 20px;
