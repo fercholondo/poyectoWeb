@@ -1,19 +1,6 @@
 const botonBuscarEmpleado = document.querySelector(".search button");
 const Id = document.querySelector(".search input");
-/*const Identificacion = document.querySelector(".identificacion");
-//const nombres = document.querySelector(".nombres");
-//const apellidos = document.querySelector(".apellidos");
-//const fecha_ingreso = document.querySelector(".fecha_ingreso");
-//const cargo = document.querySelector(".cargo");
-//const vinculado = document.querySelector(".es_vinculado");
-//const salario = document.querySelector(".salario");
-var ident = document.getElementById("identificacion");
-var nomb = document.getElementById("nombres");
-var apelli = document.getElementById("apellidos");
-var fecha_in = document.getElementById("fecha_ingreso");
-var car = document.getElementById("cargo");
-var es_vin = document.getElementById("es_vinculado");
-var salar = document.getElementById("salario");*/
+
 
 const botonCrearEmpleado = document.querySelector(".crear button");
 const botonEliminarEmpleado = document.querySelector(".eliminar button");
@@ -32,27 +19,21 @@ botonBuscarEmpleado.addEventListener("click", async () => {
     console.log(response.data.apellidos);
     console.log(response.data.identificacion);
    console.log(nombres.value);
-    console.log("paso por aca");
+    
     // leer datos de la BD
-   //Identificacion.innerHTML = response.data["identificacion"];
+ 
    var ident = document.getElementById("identificacion");
    ident.value=response.data["identificacion"];
-   //nombres.innerHTML = response.data["nombres"];
-  var nomb = document.getElementById("nombres");
+   var nomb = document.getElementById("nombres");
    nomb.value=response.data["nombres"];
-   //apellidos.innerHTML = response.data["apellidos"];
    var apelli = document.getElementById("apellidos");
    apelli.value=response.data["apellidos"];
-   //fecha_ingreso.innerHTML = response.data["fecha_ingreso"];
    var fecha_in= document.getElementById("fecha_ingreso");
    fecha_in.value=response.data["fecha_ingreso"];
-   //vinculado.innerHTML = response.data["es_vinculado"];
    var es_vin = document.getElementById("es_vinculado");
    es_vin.value=response.data["es_vinculado"];
-   //cargo.innerHTML = response.data["cargo"];
    var car = document.getElementById("cargo");
    car.value=response.data["cargo"];
-   //salario.innerHTML = response.data["salario"];
    var salar = document.getElementById("salario");
    salar.value=response.data["salario"];
 
@@ -88,11 +69,10 @@ const  apelli=document.querySelector("#apellidos" ).value
         );
   
 
-  //console.log("cualquier cosa")
+
   
   window.alert("se creo nuevo empleado") 
-  //console.log(typeof(ident),typeof(nomb),typeof(apelli),typeof(fecha_in),typeof(car),typeof(es_vin),typeof(salar)
- // )
+  
 
 } catch (error) {
    // Manejo de errores
