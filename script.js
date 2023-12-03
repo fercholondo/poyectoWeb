@@ -51,15 +51,23 @@ botonCrearEmpleado.addEventListener("click", async () => {
 const  apelli=document.querySelector("#apellidos" ).value
  const fecha_in=document.querySelector("#fecha_ingreso" ).value
  const car=document.querySelector("#cargo" ).value
- const es_vin=Boolean(document.querySelector("#es_vinculado" ).value)
+ const es_vin=String(document.querySelector("#es_vinculado" ).value)
  const salar=String(document.querySelector("#salario" ).value)
- 
+
+ //const verificar =false
+  // Convierte el valor a booleano
+  var verificar = (es_vin.toLowerCase() === 'true');
+
+  // Muestra el resultado
+  
+
+
  const empleado={identificacion: ident,
  nombres:`${nomb}`,
  apellidos:`${apelli}`,
  fecha_ingreso:`${fecha_in}`,
  cargo:`${car}`,
- es_vinculado:es_vin,
+ es_vinculado:verificar,
  salario:`${salar}`}
  console.log (empleado)
   
@@ -106,15 +114,17 @@ botonModificarEmpleado.addEventListener("click", async () => {
      const  apelli=document.querySelector("#apellidos" ).value
    const fecha_in=document.querySelector("#fecha_ingreso" ).value
    const car=document.querySelector("#cargo" ).value
-   const es_vin=Boolean(document.querySelector("#es_vinculado" ).value)
+   const es_vin=String(document.querySelector("#es_vinculado" ).value)
    const salar=String(document.querySelector("#salario" ).value)
-   
+    // Convierte el valor a booleano
+  var verificar = (es_vin.toLowerCase() === 'true');
+
    const empleado={identificacion: ident,
    nombres:`${nomb}`,
    apellidos:`${apelli}`,
    fecha_ingreso:`${fecha_in}`,
    cargo:`${car}`,
-   es_vinculado:es_vin,
+   es_vinculado:verificar,
    salario:`${salar}`}
 
     
